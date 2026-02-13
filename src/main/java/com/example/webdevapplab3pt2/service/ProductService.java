@@ -24,14 +24,18 @@ public class ProductService {
 
     public List<Product> getAllProducts(){return productRepository.findAll();}
 
-    public Product createProduct(Long categoryid, Product product){
-        Optional<Category> category = categoryRepository.findById(categoryid);
+    public Product createProduct(Long categoryid, Product product) {
+
+        Category category = categoryRepository.findById(categoryid)
+                .orElseThrow(() -> new RuntimeException("Category not found"));
 
         product.setCategory(category);
         category.getProducts().add(product);
 
-        return vcategoryRepository.save(product,);}
+        return productRepository.save(product);
     }
+
+}
 
 
 

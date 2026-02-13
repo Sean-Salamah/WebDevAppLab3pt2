@@ -11,12 +11,15 @@ import java.util.List;
 public class ProductController {
     private ProductService productService;
 
-    public ProductController(ProductController productController){this.productService=productService;}
+    public ProductController(ProductService productService){
+        this.productService = productService;
+    }
+
 
     @GetMapping("/products")
     public List<Product> getAllProducts(){return productService.getAllProducts();}
 
-    @PostMapping("/products/{id}")
+    @PostMapping("/products/{categoryid}")
     public Product addProductToLibrary(@PathVariable Long categoryid, @Validated @RequestBody Product product)
     {
         return productService.createProduct(categoryid,product);

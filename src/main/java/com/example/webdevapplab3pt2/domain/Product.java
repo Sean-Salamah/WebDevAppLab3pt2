@@ -63,7 +63,7 @@ public class Product {
         return category;
     }
 
-    public void setCategory(Optional<Category> category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

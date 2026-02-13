@@ -17,7 +17,7 @@ public class Category {
 
     private String categoryName;
 
-    @OneToMany(mappedBy = "Category", cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL,orphanRemoval = true)
     @JsonManagedReference
     private List<Product> products = new ArrayList<>();
 
@@ -41,7 +41,7 @@ public class Category {
 
     public void setCategoryid(Long categoryid)
     {
-        this.categoryid = categoryid;
+         this.categoryid = categoryid;
     }
 
     public String getCategoryName()
