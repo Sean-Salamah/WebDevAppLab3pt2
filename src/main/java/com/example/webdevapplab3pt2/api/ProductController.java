@@ -20,7 +20,7 @@ public class ProductController {
     public List<Product> getAllProducts(){return productService.getAllProducts();}
 
     @PostMapping("/products/{categoryid}")
-    public Product addProductToLibrary(@PathVariable Long categoryid, @Validated @RequestBody Product product)
+    public Product addProductToCategory(@PathVariable Long categoryid, @Validated @RequestBody Product product)
     {
         return productService.createProduct(categoryid,product);
     }
